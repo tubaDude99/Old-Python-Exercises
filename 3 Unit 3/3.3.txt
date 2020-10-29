@@ -1,0 +1,284 @@
+# Create a homogeneous int tuple
+T_int = (10, -4, 59, 58, 23, 50)
+type(T_int)
+
+
+# Create a homogeneous string tuple
+T_string = ("word", "letter", "vowel", "spell", "book", "write", "read")
+type(T_string)
+
+# Create heterogeneous tuples
+T = ("Tobias", 23, 25.3, [])
+type(T)
+
+# Create heterogeneous tuples
+
+# A datetime object can be a tuple element
+from datetime import datetime
+now = datetime.today() 
+
+T = ((1.5,2.6), "home", now)
+type(T)
+
+T = ("switch") # This is not a tuple
+type(T)
+
+
+T = ("switch",) # Note the comma after the string makes T a tuple
+type(T)
+
+# List of employee names
+names_list = ["Suresh", "Colette", "Skye", "Hiroto", "Tobias", "Tamara", "Jin", "Joana", "Alton"]
+
+# Sort the names alphabetically
+sorted_list = sorted(names_list)
+
+# Convert list into tuple
+names_tuple = tuple(sorted_list)
+
+# List converted into a tuple
+print(type(names_tuple))
+
+# Print the first and last name in the tuple
+print("First name is: {:s}".format(names_tuple[0]))
+print("Last name is: {:s}".format(names_tuple[-1]))
+
+# Collect 3 int numbers from a user
+L = []
+for i in range(3):
+    tmp = int(input("Enter an int {:d}/3: ".format(i)))
+    L.append(tmp ** 2)
+
+# Convert the list into a tuple
+T = tuple(L)
+
+# Print the content of the tuple
+print("Tuple of squares is:", T)
+
+# Print each of the tuple elements on a new line
+for i in range(3):
+    print("T[{0:d}] = {1:d}".format(i, T[i]))
+
+
+T = ("Tobias", 23, 25.3, [])
+
+# Tuples are immutable and cannot be changed
+T[0] = "hello"
+
+T = ("Tobias", 23, 25.3, [])
+
+# A list inside a tuple can change
+T[-1].append(44)
+
+# The tuple did NOT change, it still refers to the same list; only the list was changed
+print(T)
+
+# [ ] Create a tuple that consists of the following variables
+
+x = 5
+l = [4.4, 5.3]
+s = "something"
+t = (9, 0)
+T = (x,l,s,t)
+print(T)
+
+# [ ] Change the third element of T to [59, 20.4]
+
+T = ([43.6, 34], [49, 59], [50, 34.6], [39, 49])
+T[2][0] = 59
+T[2][1] = 20.4
+print(T)
+
+# [ ] Write a program to merge the content of T1 and T2 into one tuple T
+# Correct output should be T = (5, 4, 3, 9, 2, 12)
+# T = ((5, 4, 3), (9, 2, 12)) is an incorrect output
+
+# Hint: Use list to/from tuple conversion
+
+T1 = (5, 4, 3)
+T2 = (9, 2, 12)
+T = T1 + T2
+print(T)
+
+T = (12, 24, 'name', 'city')
+
+# Slice the tuple into numerical and textual tuples
+numerical_tuple = T[0:2]
+print(numerical_tuple)
+
+textual_tuple = T[-2:]
+print(textual_tuple)
+
+# Swap variables using tuple unpacking
+
+e1 = 5
+e2 = 109
+print("\nBefore swapping:")
+print("e1 = {:3d}\t e2 = {:3d}".format(e1, e2))
+
+e1, e2 = e2, e1
+
+print("\nAfter swapping:")
+print("e1 = {:3d}\t e2 = {:3d}".format(e1, e2))
+
+# Split a full name into the first and last names
+def split_name(name):
+    names = name.split(" ")
+    first_name = names[0]
+    last_name = names[-1]
+    # pack the variables into a tuple, then return the tuple
+    return (first_name, last_name)
+
+# Ask user for input
+name = input("Enter your full name: ")
+
+# Unpack the returned tuples into first, last variables
+# looks like the function returns 2 variables
+first, last = split_name(name)
+
+# Unpacked variables can be used separately
+print("First name: {:s}".format(first))
+print("Last name: {:s}".format(last))
+
+# [ ] Write a program to split the content of T into T1 and T2
+# T1 = (5, 4, 3)
+# T2 = (9, 2, 12)
+
+T = (5, 4, 3, 9, 2, 12)
+T1 = T[:3]
+T2 = T[-3:]
+print("T1:", T1)
+print("T2:", T2)
+
+# [ ] Write an expression to unpack `T` into:
+# 1) x = 5
+# 2) l = [3, 5.3]
+# 3) s = 'something
+# 4) t = (9, 0)
+
+T = (5, [3, 5.3], 'something', (9, 0))
+x, l, s, t = T 
+
+print("After unpacking the tuple:", T)
+print("x =", x)
+print("l =", l)
+print("s =", s)
+print("t =", t)
+
+# [ ] Complete the function `current_date` to return today's month, day, and year
+# Hint: Use an appropriate function from the datetime module
+from datetime import datetime
+def current_date():
+    d = datetime.today()
+    return (d.month, d.day, d.year)
+
+m, d, y = current_date()
+print("Today's date is: {:2d}/{:2d}/{:4d}".format(m, d, y))
+
+T = (4, [5, 6], 'name', 3.5, True)
+
+print("4 contained in T?", 4 in T)
+print("5 not contained in T?", 5 not in T )
+print("False contained in T?", False in T)
+
+# Equivalent tuples, not identical
+T1 = (10, [2, 4], 59)
+T2 = (10, [2, 4], 59)
+
+if (T1 == T2):
+    print("Equal tuples")
+else:
+    print("Not equal tuples")
+
+if (T1 is T2):
+    print("Identical tuples")
+else:
+    print("Not identical tuples")
+
+# Identical tuples (also equivalent)
+T1 = (10, [2, 4], 59)
+T2 = T1
+
+if (T1 == T2):
+    print("Equal tuples")
+else:
+    print("Not equal tuples")
+
+if (T1 is T2):
+    print("Identical tuples")
+else:
+    print("Not identical tuples")
+
+# Changing one of 2 identical tuples
+T1 = (10, [2, 4], 59)
+T2 = T1
+
+# A change in T1 is a change in T2
+T1[1][0] = 20
+
+print("T1 = ", T1)
+print("T2 = ", T2)
+
+T1 = ("First", "Last")
+T2 = ("Middle",) # single element tuple
+
+# Concatenate two tuples
+T = T1 + T2
+print(T)
+
+T1 = (10, [2, 4], 59)
+T2 = (59, [2, 4], 'name', 3.5, True)
+
+# Concatenate sliced tuples
+T = T1[1:] + T2[0:2]
+print(T)
+
+# length of tuple
+T1 = (10, [2, 4], 59)
+print(len(T1))
+
+# Iterate over elements of a tuple
+T1 = (10, [2,4], 59)
+
+for i in range(len(T1)):
+    print("T1[{:d}] = {}".format(i, T1[i]))
+
+# [ ] Write a program to merge the content of T1 and T2 into one tuple T
+# Correct output should be T = (5, 4, 3, 9, 2, 12), 
+# T = ((5, 4, 3), (9, 2, 12)) is an incorrect output
+
+# You should NOT use lists in your solution
+
+T1 = (5, 4, 3)
+T2 = (9, 2, 12)
+T = T1 + T2
+print(T)
+
+# [ ] Write a program to prompt the user for a number, then test if the number is contained in T
+
+T = (23, 45, 93, 59, 35, 58, 19, 3)
+if int(input()) in T:
+    print('yes')
+else:
+    print('no')
+
+# Write a function to return the largest element in a tuple T
+
+T = (23, 45, 93, 59, 35, 58, 19, 3)
+
+def big(T):
+    l = T[0]
+    for num in T:
+        if num > l:
+            l = num
+    return l
+
+print(big(T))
+
+# [ ] Write a program to compute the average of the elements in T
+
+T = (23, 45, 93, 59, 35, 58, 19, 3)
+t = 0
+for x in T:
+    t = t + x
+print("Average =", t/len(T))
