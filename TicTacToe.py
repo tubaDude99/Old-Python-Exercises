@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[7]:
-
-
 import random
 
 t = [[" "," "," "],[" "," "," "],[" "," "," "]]
@@ -93,10 +87,3 @@ while 1:
     t[x][y] = "O"
     if win() or stale():
         break
-
-
-# In[4]:
-
-
-ts
-

@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[4]:
-
-
 t = [[" "," "," "],[" "," "," "],[" "," "," "]]
 ts = ['A1','A2','A3','B1','B2','B3','C1','C2','C3']
 
@@ -106,4 +100,3 @@ while 1:
     t[x][y] = "O"
     if win() or stale():
         break
-
